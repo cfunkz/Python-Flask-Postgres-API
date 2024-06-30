@@ -33,7 +33,7 @@ limiter.init_app(app)  # Initialize the limiter with the Flask app
 
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
-@app.route('/strain/<name>', methods=['GET'])
+@app.route('/item/<name>', methods=['GET'])
 @cache.cached(timeout=60, query_string=True)  # Cache response for 60 seconds
 def get_strain_by_name(name):
     try:
