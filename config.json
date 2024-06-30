@@ -7,5 +7,5 @@
         "port": "5432"
     },
     "db_table": "db table",
-    "request_limit": "20"
+    "rate_limit": "20"
 }
