@@ -1,6 +1,8 @@
 import json
 from collections import OrderedDict
 from flask import Flask, Response, jsonify
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 import psycopg2
 from psycopg2 import pool
 from urllib.parse import unquote_plus
@@ -21,7 +23,14 @@ try:
 except (Exception, psycopg2.Error) as error:
     print("Error creating PostgreSQL connection pool:", error)
 
-@app.route('/item/<name>', methods=['GET'])
+# Configure rate limiting
+limiter = Limiter(
+    key_func=get_remote_address,
+    default_limits=[f"{config['rate_limit']} per minute"]
+)
+limiter.init_app(app)  # Attach the limiter with the Flask app
+
+@app.route('/strain/<name>', methods=['GET'])
 def get_strain_by_name(name):
     try:
         decoded_name = unquote_plus(name) # Decode name to remove spaces
