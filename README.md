@@ -1,5 +1,5 @@
 # Python-Flask-Postgres-API
-An API example using python, flask and postgres sql with pooling, caching and rate limit for requests.
+A simple API example using python, flask and postgres sql with pooling, caching and rate limit for requests.
 
 ## Requirements
 - `pip install flask`
