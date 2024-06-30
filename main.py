@@ -21,7 +21,7 @@ try:
 except (Exception, psycopg2.Error) as error:
     print("Error creating PostgreSQL connection pool:", error)
 
-@app.route('/strain/<name>', methods=['GET'])
+@app.route('/item/<name>', methods=['GET'])
 def get_strain_by_name(name):
     try:
         decoded_name = unquote_plus(name) # Decode name to remove spaces
