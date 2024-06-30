@@ -1,0 +1,10 @@
+{
+    "db_params": {
+        "dbname": "db name",
+        "user": "db user",
+        "password": "db password",
+        "host": "db host",
+        "port": "5432"
+    },
+    "db_table": "db table"
+}
