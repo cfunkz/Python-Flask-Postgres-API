@@ -35,7 +35,7 @@ cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 @app.route('/item/<name>', methods=['GET'])
 @cache.cached(timeout=60, query_string=True)  # Cache response for 60 seconds
-def get_strain_by_name(name):
+def get_item_by_name(name):
     try:
         decoded_name = unquote_plus(name) # Decode name to remove spaces
         conn = conn_pool.getconn() # Connect to db pool
@@ -59,7 +59,7 @@ def get_strain_by_name(name):
             # Return JSON response as json content type
             return Response(json_result, content_type='application/json')
         else:
-            return jsonify({'message': 'Strain not found'}), 404
+            return jsonify({'message': 'Item not found'}), 404
     
     except (Exception, psycopg2.Error) as error:
         print("Error pulling data:", error)
