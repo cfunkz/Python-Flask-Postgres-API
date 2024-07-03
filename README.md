@@ -8,6 +8,6 @@ A simple API example using python, flask and postgres sql with pooling, caching 
 - `pip install Flask-Caching`
 
 ## How to use
-- Edit the `config.json` file adding your database details from which you want to pull the data
+- Edit the `config.json` file with your PostgreSQL database details
 - Run the `main.py` file
 - Visit `http://localhost:5000/item/<name>` to search for items with that name
